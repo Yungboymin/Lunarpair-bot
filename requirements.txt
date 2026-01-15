@@ -4,4 +4,4 @@ motor
 uvicorn
 cryptg
 python-multipart
-
+setuptools
