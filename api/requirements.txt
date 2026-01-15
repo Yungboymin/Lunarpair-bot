@@ -1,0 +1,6 @@
+fastapi
+telethon
+motor
+uvicorn
+cryptg
+python-multipart
