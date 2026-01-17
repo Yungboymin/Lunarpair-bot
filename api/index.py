@@ -34,12 +34,12 @@ async def send_code(data: Request):
             StringSession(), 
             API_ID, 
             API_HASH,
-            connection=connection.ConnectionTcpFull, # Faster for cloud
+            connection=connection.ConnectionTcpFull, # cloud
             connection_retries=1
         )
 
         logger.info("Connecting to Telegram...")
-        # Set a strict timeout so we don't hang the frontend
+        # a 
         await asyncio.wait_for(client.connect(), timeout=12.0)
         logger.info("Connected successfully.")
 
@@ -47,7 +47,7 @@ async def send_code(data: Request):
         sent = await client.send_code_request(phone)
         logger.info(f"Code sent! Hash: {sent.phone_code_hash}")
 
-        # 3. DB CONNECTION INSIDE
+        # 3. DB CONNECTION 
         logger.info("Connecting to MongoDB...")
         db_client = AsyncIOMotorClient(MONGO_URI)
         db = db_client["lunar_db"]
@@ -73,5 +73,5 @@ async def send_code(data: Request):
         logger.error(f"CRITICAL ERROR: {str(e)}")
         return {"status": "error", "message": str(e)}
 
-# Export for Vercel
+# Export  Vercel
 handler = app
